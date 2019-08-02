@@ -1,10 +1,10 @@
-
 # We need to import the random number generator
 from random import randint
 
+
 print("Hello. Guess the right number between 1 and 10 to win!")
 while True:
-	
+	compguesses = []
 	# It picks a number between 1-10
 	Win_number = randint(1,10)
 
@@ -32,7 +32,14 @@ while True:
 		while True:
 
 			comp_guess = randint(1, 10)
-			print(f"The computer guessed {comp_guess}")
+			if comp_guess in compguesses:
+				continue
+			else:
+				compguesses.append(comp_guess)
+				print(f"The computer guessed {comp_guess}")
+				break
+
+
 
 		if comp_guess == Win_number:
 			print("\nThe computer guessed right before you. Better luck next time...")
